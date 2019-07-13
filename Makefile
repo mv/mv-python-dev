@@ -55,6 +55,9 @@ venv-clear: ## - Clear (and reinstall) virtualenv
 	@echo "Reinstalling..."
 	virtualenv $(_venv) --clear
 
+venv-clean: ## - Clean: virtualenv
+	/bin/rm -rf $(_venv)
+
 
 pyact:	## - $ pyactivate
 	pyactivate
