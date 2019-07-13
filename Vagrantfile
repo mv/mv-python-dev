@@ -17,11 +17,13 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", ip: "192.168.33.11"
 
   config.vm.provision "shell", inline: <<-SHELL
-    yum install -y yum-utils
+    yum install -y yum-utils git
     yum install -y htop dstat lsof
     yum install -y python3 python3-pip python3-devel
-    pip3 install virtualenv
+    pip3 install virtualenv 2>/dev/null
   SHELL
+
+  config.vm.provision "shell", path: "util/provision.pyenv.linux.sh"
 
 end
 
