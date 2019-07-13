@@ -27,3 +27,7 @@ then
   chown -R vagrant:vagrant ${PYENV_ROOT}
 fi
 
+## Add headers for '_ctypes' module in case of installing 3.7.x
+sudo yum install -y libffi-devel
+
+
