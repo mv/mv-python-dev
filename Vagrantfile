@@ -20,7 +20,6 @@ Vagrant.configure("2") do |config|
     yum install -y yum-utils git
     yum install -y htop dstat lsof
     yum install -y python3 python3-pip python3-devel
-    pip3 install virtualenv 2>/dev/null
   SHELL
 
   config.vm.provision "shell", path: "util/provision.pyenv.linux.sh"

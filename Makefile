@@ -42,13 +42,8 @@ init:   ## - Virtualenv install + pip install
 init:   venv pip
 
 
-pip:    ## - Install from requirements*.txt
-	. $(_venv)/bin/activate              && \
-	pip3 install -r requirements.txt     && \
-	pip3 install -r requirements-dev.txt
-
-
 venv:   ## - Create virtualenv
+	pip3 install virtualenv
 	virtualenv $(_venv)
 
 venv-clear: ## - Clear (and reinstall) virtualenv
@@ -56,11 +51,10 @@ venv-clear: ## - Clear (and reinstall) virtualenv
 	virtualenv $(_venv) --clear
 
 
-pyact:	## - $ pyactivate
-	pyactivate
-
-pydeact:	## - $ pydeactivate
-	pydeactivate
+pip:    ## - Install from requirements*.txt
+	. $(_venv)/bin/activate              && \
+	pip3 install -r requirements.txt     && \
+	pip3 install -r requirements-dev.txt
 
 
 clean:	## - Cleanup: pycache stuff
