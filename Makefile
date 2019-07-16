@@ -33,8 +33,9 @@ help:   show
 
 show:   ## - Show my vars
 	@echo
-	@echo "  This: $(_this)"
+	@echo "  This: [$(_this)]"
 	@echo "  Virtualenv: [$(_venv)]"
+	@echo "  Python Version: [$(_python_verson)]"
 	@echo
 
 
@@ -54,7 +55,7 @@ venv-clean: ## - Clean: virtualenv
 	/bin/rm -rf $(_venv)
 
 
-pip:    ## - Install from requirements*.txt
+pip:    ## - Pip install from requirements*.txt
 	. $(_venv)/bin/activate              && \
 	pip3 install -r requirements.txt     && \
 	pip3 install -r requirements-dev.txt

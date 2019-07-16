@@ -27,8 +27,6 @@ then
   chown -R vagrant:vagrant ${PYENV_ROOT}
 fi
 
-## Add dependencies for compiling/installing
+## Add dependencies for compiling/installing Python
 sudo yum install -y openssl-devel bzip2-devel libffi-devel
 sudo yum install -y readline-devel sqlite-devel expat-devel
-
-
