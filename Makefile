@@ -11,6 +11,7 @@
 # My vars: simple
 _this := $(shell uname -sr)
 _venv := venv
+_python_verson := 3.7.4
 
 # My vars: recursive
 
@@ -59,6 +60,12 @@ pip:    ## - Pip install from requirements*.txt
 	. $(_venv)/bin/activate              && \
 	pip3 install -r requirements.txt     && \
 	pip3 install -r requirements-dev.txt
+
+
+pyenv:  ## - Pyenv Install + set local
+	@pyenv install $(_python_verson) || :
+	@pyenv local   $(_python_verson)
+	@pyenv version
 
 
 clean:	## - Cleanup: pycache stuff
